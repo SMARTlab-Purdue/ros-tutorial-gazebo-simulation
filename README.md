@@ -261,7 +261,7 @@ This controller allows you to adjust controller parameters, proportional gains, 
 
 The algorithm is illustrated in the following image.
 
-![](https://github.rcac.purdue.edu/ByungcheolMinGroup/ROS-tutorials/blob/master/images/gazebosim/gzsim-sim_model.png)
+![Sim model](https://github.com/SMARTlab-Purdue/ros-tutorial-gazebo-simulation/blob/master/images/gzsim-sim_model.png)
 
 ## Test your controller
 Run roscore first:
@@ -284,9 +284,9 @@ The Husky will not move because the goal is now (0,0). Change the goal in the sc
 
 Let's run the controller again with different parameters (wgain, vconst, distThresh).
 
-![](https://github.rcac.purdue.edu/ByungcheolMinGroup/ROS-tutorials/blob/master/images/gazebosim/gzsim-drive_husky.png)
+![](https://github.com/SMARTlab-Purdue/ros-tutorial-gazebo-simulation/blob/master/images/gzsim-drive_husky.png)
 
-![](https://github.rcac.purdue.edu/ByungcheolMinGroup/ROS-tutorials/blob/master/images/gazebosim/gzsim-terminal.png)
+![](https://github.com/SMARTlab-Purdue/ros-tutorial-gazebo-simulation/blob/master/images/gzsim-terminal.png)
 
 
 
@@ -645,7 +645,7 @@ Run Gazebo, insert your robot model and make sure the wheel has appeared and is 
 
 At this point the robot should have a chassis with a caster and two wheels as shown below.
 
-![](https://github.rcac.purdue.edu/ByungcheolMinGroup/ROS-tutorials/blob/master/images/gazebosim/gzsim-robot_right_wheel.png)
+![](https://github.com/SMARTlab-Purdue/ros-tutorial-gazebo-simulation/blob/master/images/gzsim-robot_right_wheel.png)
 
 7. Make the model dynamic by setting `<static>` to false, and add two hinge joints for the left and right wheels.
 
@@ -849,7 +849,7 @@ And raise the chassis up a little by specifying a pose for the visual:
 
 The figures below illustrate the changes.
 
-![](https://github.rcac.purdue.edu/ByungcheolMinGroup/ROS-tutorials/blob/master/images/gazebosim/gzsim-robot_scaling.png)
+![](https://github.com/SMARTlab-Purdue/ros-tutorial-gazebo-simulation/blob/master/images/gzsim-robot_scaling.png)
 
 Note that at this point we have simply modified the `<visual>` elements of the robot, so the robot will look like a scaled down version of the Pioneer 2DX model through the GUI and to GPU based sensors such as camera, depth camera and GPU Lasers.  Since we did not modify the `<collision>` elements in this model, the box geometry will still be used by the physics engine for collision dynamics and by CPU based ray sensors.
 
@@ -1198,7 +1198,7 @@ Add a few objects on the world in front of the camera. You can see what the came
 
 After running that command, a small window will appear in your screen showing what the camera is capturing.
 
-![](https://github.rcac.purdue.edu/ByungcheolMinGroup/ROS-tutorials/blob/master/images/gazebosim/gzsim-camview2.png) 
+![](https://github.com/SMARTlab-Purdue/ros-tutorial-gazebo-simulation/blob/master/images/gzsim-camview2.png) 
 
 Next we check the calculated illuminance by watching the published topic _(/light_sensor_plugin/lightSensor)_. Type the following command to see the calculated illuminance value from the image:
 
@@ -1206,7 +1206,7 @@ Next we check the calculated illuminance by watching the published topic _(/ligh
 
 You should see the topic messages being published on screen:
 
-![](https://github.rcac.purdue.edu/ByungcheolMinGroup/ROS-tutorials/blob/master/images/gazebosim/gzsim-camview3.png)
+![](https://github.com/SMARTlab-Purdue/ros-tutorial-gazebo-simulation/blob/master/images/gzsim-camview3.png)
 
 ### Putting it all together
 In this section we mount the light sensor on the custom mobile robot (sdf file) created previously. Let the mobile robot move about; watch the images being captured and the calculated illuminance values published in real time.
@@ -1467,11 +1467,11 @@ Once the model has been updated, we are ready to run our robot and capture the e
 
 Spawn a copy of the custom robot model on the empty world. The robot model previously built now shows the rectangular box on top which is our custom sensor. You can adjust its pose as necessary to align the sensor properly. The completed robot with the sensor is shown below.
 
-![](https://github.rcac.purdue.edu/ByungcheolMinGroup/ROS-tutorials/blob/master/images/gazebosim/gzsim-complete_bot.png)
+![](https://github.com/SMARTlab-Purdue/ros-tutorial-gazebo-simulation/blob/master/images/gzsim-complete_bot.png)
 
 Place random objects around the robot for monitoring.
 
-![](https://github.rcac.purdue.edu/ByungcheolMinGroup/ROS-tutorials/blob/master/images/gazebosim/gzsim-robot_surrounding.png)
+![](https://github.com/SMARTlab-Purdue/ros-tutorial-gazebo-simulation/blob/master/images/gzsim-robot_surrounding.png)
 
 The model at the moment is publishing on rostopic and the topics can be listed by the following command.
 
@@ -1479,17 +1479,17 @@ The model at the moment is publishing on rostopic and the topics can be listed b
 
 If everything went well, the result should show up as follows.
 
-![](https://github.rcac.purdue.edu/ByungcheolMinGroup/ROS-tutorials/blob/master/images/gazebosim/gzsim-rostopic_list.png)
+![](https://github.com/SMARTlab-Purdue/ros-tutorial-gazebo-simulation/blob/master/images/gzsim-rostopic_list.png)
 
 Call 'rqt' and select the raw image topic from the drop down menu to view the sensor captured frames. 
 
-![](https://github.rcac.purdue.edu/ByungcheolMinGroup/ROS-tutorials/blob/master/images/gazebosim/gzsim-rqt_1.png)
+![](https://github.com/SMARTlab-Purdue/ros-tutorial-gazebo-simulation/blob/master/images/gzsim-rqt_1.png)
 
 Use the following command to publish the illuminance value calculated on each frame.
       
       rostopic echo /light_sensor_plugin/lightSensor
 
-![](https://github.rcac.purdue.edu/ByungcheolMinGroup/ROS-tutorials/blob/master/images/gazebosim/gzsim-illuminance.png)
+![](https://github.com/SMARTlab-Purdue/ros-tutorial-gazebo-simulation/blob/master/images/gzsim-illuminance.png)
 
 Allow the robot to move around by changing the wheel joint forces as shown previously. As the robot moves along, it now captures the video using the custom built sensor and calculates the illuminance value, published on a ros node. A demo video of the outcome is available below. 
 

@@ -1,7 +1,7 @@
 # ROS Tutorial on Robot Simulation in Gazebo
 ROS tutorial by Purdue SMART lab: Husky mobile robot navigation and creating custom robots with sensor plugins in Gazebo simulation.
 
-The tutorial instructions is also available in th wiki page of this repository: <https://github.com/SMARTlab-Purdue/ros-tutorial-robot-control-vision/wiki>
+The tutorial instructions are also available on the wiki page of this repository: <https://github.com/SMARTlab-Purdue/ros-tutorial-robot-control-vision/wiki>
 
 # 1. Objectives
 [Gazebo](http://gazebosim.org/) is a powerful robotic simulator that allows us to customize robot models to fit your research. Gazebo offers physics simulation at a much higher degree of fidelity, a suite of sensors, and interfaces. 
@@ -89,7 +89,7 @@ We now run Gazebo. Before doing it, be sure to always source the appropriate ROS
 
      source /opt/ros/kinetic/setup.bash
 
-Assuming your ROS and Gazebo environment have been properly setup and built, you should now be able to run Gazebo through a simple rosrun command, after launching roscore if needed. Run roscore first:
+Assuming your ROS and Gazebo environment have been properly set up and built, you should now be able to run Gazebo through a simple rosrun command, after launching roscore if needed. Run roscore first:
 
      roscore
 
@@ -99,7 +99,7 @@ Open another terminal and run:
 
 ![](https://bitbucket.org/osrf/gazebo_tutorials/raw/default/ros_installing/figs/800px-EmptyGazebo.png)
 
-The Gazebo GUI should appear with nothing inside the viewing window. To verify that the proper ROS connections are setup, view the available ROS topics:
+The Gazebo GUI should appear with nothing inside the viewing window. To verify that the proper ROS connections are set up, view the available ROS topics:
 
      rostopic list
 
@@ -155,7 +155,7 @@ In the above command, we publish to the /husky_velocity_controller/cmd_vel topic
 This example shows how to send a command through ROS topics between two different computers, pair up with someone else.
 
 ### Person A - Run the ROS master and Gazebo simulation
-You need to configure ROS environment variables to preperly communicate between two ROS sytems. 
+You need to configure ROS environment variables to properly communicate between two ROS systems. 
 
 First, check your IP address:
 
@@ -193,7 +193,7 @@ If everything's going well, launch Gazebo
 
     roslaunch gazebo_ros willowgarage_world.launch
 
-You will see the Willow garage world without robot, spawn a husky:
+You will see the Willow garage world without the robot, spawn a husky:
 
     roslaunch husky_gazebo spawn_husky.launch
 
@@ -210,7 +210,7 @@ and put your IP address and the master address from above:
     export ROS_IP=YOUR_IP
     export ROS_MASTER_URI=http://MASTER_IP:11311
 
-For example, if your (Person B) IP address is 128.46.80.10 and the master ip is 128.46.80.123 (Person A)
+For example, if your (Person B) IP address is 128.46.80.10 and the master IP is 128.46.80.123 (Person A)
 
     export ROS_IP=128.46.80.10
     export ROS_MASTER_URI=http://128.46.80.123:11311
@@ -234,7 +234,7 @@ Explore the Willow garage and change the role!
 
 
 ## Example 2 - Escape the Willow Garage
-This example demonstrates how to control multiple robots simultaneously. One person runs the ROS master and Gazebo simulation an others send a command to control their robot.
+This example demonstrates how to control multiple robots simultaneously. One person runs the ROS master and Gazebo simulation and others send a command to control their robot.
 
 ### Person A -  Run the ROS master and Gazebo simulation
 Configure ROS environments like we did above and run roscore:
@@ -267,7 +267,7 @@ Compete who escape the Willow garage first!
 
 
 ## Design a feedback controller
-We will design a simple feedback controller to drive a robot to reach to the goal location. In general, autonomous navigation represents a multi-layered embedded system that has the foloowing abilities:
+We will design a simple feedback controller to drive a robot to reach the goal location. In general, autonomous navigation represents a multi-layered embedded system that has the following abilities:
 
 - to generate an optimal path without collisions, 
 
@@ -276,7 +276,7 @@ We will design a simple feedback controller to drive a robot to reach to the goa
 - to compute an alternative path if necessary. 
 
 
-In this tutorial, we will design a simple controller that receives a desired destination from user and publishes command messages to robot.
+In this tutorial, we will design a simple controller that receives the desired destination from the user and publishes command messages to the robot.
 
 Go to the gazebo_tutorial ROS package in this repository and download _nre_simhuskycontrol.py_ to your device. 
 
@@ -332,9 +332,9 @@ Let's run the controller again with different parameters (wgain, vconst, distThr
 
 ## Overview
 
-In the previous section, we learnt how to run and control an existing robot on Gazebo. If our work requires a custom robot to be built, this section provides introductory instructions on how to get started with a basic setup. The Model Editor in later versions of Gazebo lets us construct simple models right in the Graphical User Interface (GUI). But for more complex models, you'll need to learn how to write SDF files.
+In the previous section, we learned how to run and control an existing robot on Gazebo. If our work requires a custom robot to be built, this section provides introductory instructions on how to get started with a basic setup. The Model Editor in later versions of Gazebo lets us construct simple models right in the Graphical User Interface (GUI). But for more complex models, you'll need to learn how to write SDF files.
 
-This tutorial demonstrates Gazebo's basic model management, and exercises familiarity with basic model representation inside the model database by taking the user through the process of creating a .sdf file for a two wheeled mobile robot that uses:
+This tutorial demonstrates Gazebo's basic model management, and exercises familiarity with basic model representation inside the model database by taking the user through the process of creating a .sdf file for a two-wheeled mobile robot that uses:
 
 * a differential drive mechanism for movement
 * a mesh as visual
@@ -344,7 +344,7 @@ This tutorial demonstrates Gazebo's basic model management, and exercises famili
 
 When creating our own model, we must adhere to the formatting rules for the Gazebo Model Database directory structure. Therefore, it is recommended that you familiarize yourself with the [Model Database documentation](http://gazebosim.org/tutorials?tut=model_structure&cat=build_robot) and model description formats at [SDF reference](http://gazebosim.org/sdf).  
 
-1.  Create a model directory where we call our robot '2wd_mr', short for 2 wheel drive mobile robot:
+1.  Create a model directory where we call our robot '2wd_mr', short for 2 wheels drive mobile robot:
 
         mkdir -p ~/.gazebo/models/2wd_mr
 
@@ -388,11 +388,11 @@ When creating our own model, we must adhere to the formatting rules for the Gaze
     </sdf>
     ~~~
 
-At this point we have the basic content for a model. The `model.config` file describes the robot with some extra meta data. The `model.sdf` file contains the necessary tags to instantiate a model named `2wd_mr` using Gazebo linked against SDF version 1.4.
+At this point, we have the basic content for a model. The `model.config` file describes the robot with some extra metadata. The `model.sdf` file contains the necessary tags to instantiate a model named `2wd_mr` using Gazebo linked against SDF version 1.4.
 
 ## Build the Model's Structure
 
-Our  first robot will have a rectangular base with two wheels on the side and a caster wheel at the rear. First we lay out the basic shapes of the model. To do this we will make our model `static`, which means it will be ignored by the physics engine. As a result the model will stay in one place and allow us to properly align all the components.
+Our first robot will have a rectangular base with two wheels on the side and a caster wheel at the rear. First, we lay out the basic shapes of the model. To do this we will make our model `static`, which means it will be ignored by the physics engine. As a result, the model will stay in one place and allow us to properly align all the components.
 
 Open the `~/.gazebo/models/2wd_mr/model.sdf` file.
 
@@ -681,7 +681,7 @@ Run Gazebo, insert your robot model and make sure the wheel has appeared and is 
 >           </model>
 >         </sdf>
 
-At this point the robot should have a chassis with a caster and two wheels as shown below.
+At this point, the robot should have a chassis with a caster and two wheels as shown below.
 
 ![](https://github.com/SMARTlab-Purdue/ros-tutorial-gazebo-simulation/blob/master/images/gzsim-robot_right_wheel.png)
 
@@ -801,7 +801,7 @@ At this point the robot should have a chassis with a caster and two wheels as sh
 >           </model>
 >         </sdf>
 
-The two joints rotate about the y axis `<xyz>0 1 0</xyz>`, and connect each wheel to the chassis.
+The two joints rotate about the y-axis `<xyz>0 1 0</xyz>`, and connect each wheel to the chassis.
 
 8. Start gazebo and spawn your robot model. Select your robot model and click on the dots to the right of the screen and drag them to the left to open the hidden panel.
 
@@ -811,7 +811,7 @@ Congrats! you now have a basic mobile robot.
 
 ## Attach a Mesh as Visual
 
-Meshes can add realism to a model both visually and for sensors. This section demonstrates how the user can use custom meshes to define how their model will appear in simulation. The most common use case for a mesh is to create a realistic looking visual.
+Meshes can add realism to a model both visually and for sensors. This section demonstrates how the user can use custom meshes to define how their model will appear in the simulation. The most common use case for a mesh is to create a realistic looking visual.
 
 1.  Navigate to the `2wd_mr` directory
 
@@ -833,7 +833,7 @@ Meshes can add realism to a model both visually and for sensors. This section de
         </visual>
     ~~~
 
-4.  A mesh can come from a file on disk, or from another model. In this example we'll use a mesh from the pioneer2dx model. Change the visual element to the following (but keep the the rest of the file intact):
+4.  A mesh can come from a file on disk, or from another model. In this example, we'll use a mesh from the pioneer2dx model. Change the visual element to the following (but keep the rest of the file intact):
 
     ~~~
         <visual name='visual'>
@@ -849,7 +849,7 @@ Meshes can add realism to a model both visually and for sensors. This section de
 
         ls -l ~/.gazebo/models/pioneer2dx/meshes/chassis.dae
 
-If the mesh file does not exist, make Gazebo pull the model from the [Model Database](https://bitbucket.org/osrf/gazebo_models) by spawning the `Pioneer 2DX` model at least once in gazebo (under `Insert->http://gazebosim.org/models`).
+If the mesh file does not exist, make Gazebo pull the model from the [Model Database](https://bitbucket.org/osrf/gazebo_models) by spawning the `Pioneer 2DX` model at least once in Gazebo (under `Insert->http://gazebosim.org/models`).
 
 Or manually download the model files to your local cache:
 
@@ -889,12 +889,12 @@ The figures below illustrate the changes.
 
 ![](https://github.com/SMARTlab-Purdue/ros-tutorial-gazebo-simulation/blob/master/images/gzsim-robot_scaling.png)
 
-Note that at this point we have simply modified the `<visual>` elements of the robot, so the robot will look like a scaled down version of the Pioneer 2DX model through the GUI and to GPU based sensors such as camera, depth camera and GPU Lasers.  Since we did not modify the `<collision>` elements in this model, the box geometry will still be used by the physics engine for collision dynamics and by CPU based ray sensors.
+Note that at this point we have simply modified the `<visual>` elements of the robot, so the robot will look like a scaled-down version of the Pioneer 2DX model through the GUI and to GPU based sensors such as camera, a depth camera, and GPU Lasers.  Since we did not modify the `<collision>` elements in this model, the box geometry will still be used by the physics engine for collision dynamics and by CPU based ray sensors.
 
 
 # 7. Creating and adding a Custom ROS light sensor plugin
 ## Introduction
-Our goal is to mount a custom sensor on top of our robot and publish the sensor readings on a rostopic. To do that, we first create a ROS plug in for our camera based light sensor. 
+Our goal is to mount a custom sensor on top of our robot and publish the sensor readings on a rostopic. To do that, we first create a ROS plugin for our camera-based light sensor. 
 
 In this section, we cover how to create a custom light sensor and its plugin to publish sensor readings on a ROS topic. The idea is that the sensor can be mounted on the previously built mobile robot to monitor the environment(world) created on gazebo with the robot.
 
@@ -956,7 +956,7 @@ Navigate to your package and create a file called _light_sensor_plugin.h_ in dir
         }
         #endif
 
-The above code includes a **node handler** to connect to the _roscore_. It also defines a **publisher** that will publish messages containing the **illuminance value**. Two parameters have been defined: _fov_ (field of view) and range. At present only fov is used to indicate the amount of pixels around the center of the image that will be taken into account to calculate the illuminance.
+The above code includes a **node handler** to connect to the _roscore_. It also defines a **publisher** that will publish messages containing the **illuminance value**. Two parameters have been defined: _fov_ (field of view) and range. At present only Field of View (FOV) is used to indicate the number of pixels around the center of the image that will be taken into account to calculate the illuminance.
 
 3.  Create a file named _light_sensor_plugin.cpp_ containing the following code in the src directory of your package:
 
@@ -1072,7 +1072,7 @@ The above code includes a **node handler** to connect to the _roscore_. It also 
           }
         }
 
-The above code calculates the illuminance in a very simple way (calculates the average value). It adds the values of all the pixels in the fov of the camera and then divides by the total number of pixels.
+The above code calculates the illuminance in a very simple way (calculates the average value). It adds the values of all the pixels in the FOV of the camera and then divides by the total number of pixels.
 
 4.  Substitute the code of the automatically created _CMakeLists.txt_ by the code below:
 
@@ -1238,7 +1238,7 @@ After running that command, a small window will appear in your screen showing wh
 
 ![](https://github.com/SMARTlab-Purdue/ros-tutorial-gazebo-simulation/blob/master/images/gzsim-camview2.png) 
 
-Next we check the calculated illuminance by watching the published topic _(/light_sensor_plugin/lightSensor)_. Type the following command to see the calculated illuminance value from the image:
+Next, we check the calculated illuminance by watching the published topic _(/light_sensor_plugin/lightSensor)_. Type the following command to see the calculated illuminance value from the image:
 
         > rostopic echo /light_sensor_plugin/lightSensor
 
@@ -1247,7 +1247,7 @@ You should see the topic messages being published on screen:
 ![](https://github.com/SMARTlab-Purdue/ros-tutorial-gazebo-simulation/blob/master/images/gzsim-camview3.png)
 
 ## Putting it all together
-In this section we mount the light sensor on the custom mobile robot (sdf file) created previously. Let the mobile robot move about; watch the images being captured and the calculated illuminance values published in real time.
+In this section, we mount the light sensor on the custom mobile robot (sdf file) created previously. Let the mobile robot move about; watch the images being captured and the calculated illuminance values published in real time.
 
 1.  Create a model directory for the light sensor:
 
@@ -1499,7 +1499,7 @@ Once the light_sensor model has been created, we place it on top of our custom r
 >           </model>
 >         </sdf>
 
-Once the model has been updated, we are ready to run our robot and capture the environment with our custom sensor. Call roslaunch with an empty world on gazebo.
+Once the model has been updated, we are ready to run our robot and capture the environment with our custom sensor. Call roslaunch with an empty world in Gazebo.
 
       roslaunch gazebo_ros empty_world.launch
 
@@ -1519,7 +1519,7 @@ If everything went well, the result should show up as follows.
 
 ![](https://github.com/SMARTlab-Purdue/ros-tutorial-gazebo-simulation/blob/master/images/gzsim-rostopic_list.png)
 
-Call 'rqt' and select the raw image topic from the drop down menu to view the sensor captured frames. 
+Call 'rqt' and select the raw image topic from the drop-down menu to view the sensor captured frames. 
 
 ![](https://github.com/SMARTlab-Purdue/ros-tutorial-gazebo-simulation/blob/master/images/gzsim-rqt_1.png)
 
@@ -1529,11 +1529,14 @@ Use the following command to publish the illuminance value calculated on each fr
 
 ![](https://github.com/SMARTlab-Purdue/ros-tutorial-gazebo-simulation/blob/master/images/gzsim-illuminance.png)
 
-Allow the robot to move around by changing the wheel joint forces as shown previously. As the robot moves along, it now captures the video using the custom built sensor and calculates the illuminance value, published on a ros node. A demo video of the outcome is available below. 
+Allow the robot to move around by changing the wheel joint forces as shown previously. As the robot moves along, it now captures the video using the custom built sensor and calculates the illuminance value, published on a ROS node. 
+
+## Demonstration
+A demo video of the outcome is available below. 
 
 [Demo video](https://youtu.be/Hqur3fG99Ug)
 
 # Summary
-In this tutorial we presented an introduction to using Gazebo simulation for robot navigation and control. Also, we saw how to create a custom robot with a custom sensor and able to publish the sensor outputs on ros topics. 
+In this tutorial, we presented an introduction to using Gazebo simulation for robot navigation and control. Also, we saw how to create a custom robot with a custom sensor and able to publish the sensor outputs on ROS topics. 
 
 The tutorials are summarized and adapted from the sources mentioned in Section 2. We hope, this tutorial will be helpful to anyone starting out with Gazebo and ROS.

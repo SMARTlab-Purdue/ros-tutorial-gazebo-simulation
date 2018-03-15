@@ -1,7 +1,7 @@
 # ROS Tutorial on Robot Simulation in Gazebo
 ROS tutorial by Purdue SMART lab: Husky mobile robot navigation and creating custom robots with sensor plugins in Gazebo simulation.
 
-The tutorial instructions are also available in the wiki page of this repository: <https://github.com/SMARTlab-Purdue/ros-tutorial-robot-control-vision/wiki>
+The tutorial instructions are also available in the wiki page of this repository: <https://github.com/SMARTlab-Purdue/ros-tutorial-gazebo-simulation/wiki>
 
 # Objectives
 [Gazebo](http://gazebosim.org/) is a powerful robotic simulator that allows us to customize robot models to fit your research. Gazebo offers physics simulation at a much higher degree of fidelity, a suite of sensors, and interfaces. 
